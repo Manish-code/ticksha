@@ -16,11 +16,9 @@ body {
   }
   
   .box {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: flex;
+    align-items: center; /* center children vertically */
+    height: 100vh; /* set a height for the container */
      
     
     
@@ -32,8 +30,18 @@ body {
     z-index: 10;
     background: #009938;
     opacity: 0.6;
-    margin-left: 10vw;
-   margin-top: 42vh;
+    width: 50%; /* set a width for the div */
+    margin: 0 auto; /* center horizontally */
   }
 
-
+  /* .parent-container {
+    display: flex;
+    align-items: center; /* center children vertically */
+    /* height: 100vh; /* set a height for the container */
+  /* } */
+  
+  /* .centered-div { */
+    /* width: 50%; set a width for the div */
+    /* margin: 0 auto; center horizontally */
+  /* }
+   /* */ 

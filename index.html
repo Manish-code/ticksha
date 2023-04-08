@@ -7,6 +7,29 @@
   <link rel="stylesheet" href="./public/styles/div.css">
   <link rel="stylesheet" href="./public/styles/root.css">
   <link rel="stylesheet" href="./public/styles/canvas.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+const videoId = 'yl8vPW5hydQ';
+const apiKey = 'AIzaSyCJ7nWIMYxalmBhWRzYeS32x71ztGLzwkw';
+const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${apiKey}`;
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const video = data.items[0];
+    const title = video.snippet.title;
+    const thumbnail = video.snippet.thumbnails.medium.url;
+    const description = video.snippet.description;
+    const views = video.statistics.viewCount;
+    
+    // Manipulate the DOM to display the video data
+    document.querySelector('#video-title').textContent = title;
+    document.querySelector('#video-thumbnail').src = thumbnail;
+    document.querySelector('#video-description').textContent = description;
+    document.querySelector('#video-views').textContent = views;
+  })
+  .catch(error => console.error(error));
+  </script>
 
 
 <style>
@@ -38,8 +61,16 @@
   <div class="container">
     <div class="box">
       <canvas></canvas>
-      
-   
+    </div>
+  </div>
+  <div class="box overlay">
+  <h2>YouTube Video Details</h2>
+
+		<h2 id="video-title"></h2>
+		<img id="video-thumbnail" src="" alt="Video thumbnail">
+		<p id="video-description"></p>
+		<p>Views: <span id="video-views"></span></p>
+	</div>
                        
                        
 

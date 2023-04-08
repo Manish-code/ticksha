@@ -7,3 +7,6 @@
 body {
   overflow: hidden;
 }
+body h1{
+  color: black;
+}
